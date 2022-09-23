@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<template id="report_all_tasklist">
+     <t t-call="web.html_container">
+        <t t-call="v11_internship.custom_layout"/>
+            <div class="header"></div>
+            <div class="article" style="border-top: 1px solid black;">
+                <div class="page">
+                <h2 class="text-center"><strong>Task List Report</strong></h2>
+                <br/><br/>
+                <table>
+                    <tr>
+                        <td>
+                            <span><strong>Student</strong></span>
+                        </td>
+                        <td>
+                            <span>&#160;:&#160;</span>
+                        </td>
+                        <td>
+                            <span t-esc="datas['tasklists']"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>From </strong></span>
+                        </td>
+                        <td>
+                            <span>&#160;:&#160;</span>
+                        </td>
+                        <td>
+                            <span t-esc="datas['date_from']"/>
+                        </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <span><strong>To</strong></span>
+                        </td>
+                           <td>
+                            <span>&#160;:&#160;</span>
+                        </td>
+                        <td>
+                            <span t-esc="datas['date_to']"/>
+                        </td>
+                    </tr>
+                </table>
+                    <br/>
+                    <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left;"><strong>Date </strong></th>
+                                    <th style="text-align:left;"><strong>Project </strong></th>
+                                    <th style="text-align:left;"><strong>Task </strong></th>
+                                    <th style="text-align:left;"><strong>Description </strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="text-align:left;">
+                                            <t t-esc="o['date']"/>
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <span t-field="o.project_id"/>
+                                        </td>
+                                         <td style="text-align:left;">
+                                             <t t-esc="o['task']"/>
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <t t-esc="o['description']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                </div>
+            <div class="footer"></div>       
+        </div>
+        </t>
+    </template>
+</odoo>

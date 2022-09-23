@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_submission">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="v11_internship.custom_layout"/>
+            <div class="header">
+            </div>
+                <div class="article" style="border-top: 1px solid black;">
+                    <b><h2 class="text-center">Submission Letter</h2></b>
+                    <h5 class="text-center"><span t-field="doc.sequence1"/></h5>
+                    <br/><br/><br/><br/>
+
+                    <div class="col-xs-12 text-right">
+                        <div class="col-xs-6 text-left">
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <span t-field="doc.submisison_date" />
+                        </div>
+                    </div>
+                    <br/><br/><br/><br/>
+                    <div class="row col-xs-12">
+                        <div>
+                            I am the undersigned below submission that: 
+                        </div><br/>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Name </strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field=" doc.student_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Departement</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.departement_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Study Program</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.program_id"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+
+
+                    <div class="row col-xs-12">
+                        <div>
+                            Will apply for an internship at the company: 
+                        </div><br/>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Name</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.company_id" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Address</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.company_street"/>&#44;
+                                <span t-field="doc.company_street2"/>&#44;
+                                <span t-field="doc.company_city_id"/>&#44;
+                                <span t-field="doc.company_state_id"/>&#44;
+                                <span t-field="doc.company_zip"/>&#44;
+                                <span t-field="doc.company_country_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Phone Number</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.company_phone" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Mobile Number</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.company_mobile" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+
+
+                    <div class="row col-xs-12">
+                        <div>
+                            <p>Counted start date 
+                                <b><span t-field=" doc.start_date" /></b> 
+                                until to end date 
+                                <b><span t-field=" doc.end_date" /></b> 
+                                for
+                                <b><span t-field="doc.duration" />
+                                Month
+                                </b><br/>
+                                This internship opportunity is obtained through 
+                                <b><span t-field=" doc.path" /></b> 
+                                path.
+                            </p>
+                        </div>
+                    </div>
+                    <br/><br/><br/><br/><br/><br/><br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 text-left" >
+                            Coordinator<br/>
+                            <span t-field="doc.staff_id" />
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            Student<br/>
+                            <span t-field="doc.student_id" />
+                        </div>
+                    </div>
+                </div>
+            <div class="footer">
+            </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+

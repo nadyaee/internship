@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_letter">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="v11_internship.custom_layout"/>
+            <div class="article" style="border-top: 1px solid black;">
+                <div class="page">
+                    <div class="header">
+                    </div>
+                    <b><h2 class="text-center">Cover Letter Internship</h2></b>
+                    <br/><br/><br/>
+                    <table>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Number</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                <span t-field="doc.sequence2"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <strong>Subject</strong>
+                                </span>
+                            </td>
+                            <td>
+                                <span>&#160;:&#160;</span>
+                            </td>
+                            <td>
+                                Internship Industry
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <strong>
+                        <div>
+                            Dear Hr Manager
+                        </div>
+                        <div>
+                            <span t-field="doc.company_id"/>
+                        </div>
+                        <div>
+                            <span t-field="doc.company_street"/>&#44;
+                            <span t-field="doc.company_street2"/>&#44;
+                            <span t-field="doc.company_city_id"/>&#44;
+                            <span t-field="doc.company_state_id"/>&#44;
+                            <span t-field="doc.company_zip"/>&#44;
+                            <span t-field="doc.company_country_id"/>
+                        </div>
+                    </strong>
+                    <br/>
+                    <div class="text-justify">
+                        We respectfully express our deepest appreciation to <i><span t-field=" doc.company_id"/></i>
+                        for their cooperation so far in terms of student industrial internships. Implementation of the internship
+                        make a very important contribution to improving skills, growing
+                        knowledge of the environment, processes and work culture in the company/institution. Eventually
+                        Internships will form discipline and good behavior for students which are crucial in preparation
+                        young generation who are competent and ready to work.
+                    </div>
+                    <br/>
+                    <div class="text-justify">
+                        This letter is our request so that the following students can be accepted for internships
+                        industry in the company/institution that you lead:
+                    </div>
+                    <br/>
+
+                    <div class="col-xs-12">
+                    <table border="1" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Student</th>
+                                <th class="text-left">Student Number</th>
+                                <th class="text-left">Study Program</th>
+                                <th class="text-left">Period</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-as="doc">
+                                <td class="text-left"><span t-field="doc.student_id"/></td>
+                                <td class="text-left"><span t-field="doc.identity"/></td>
+                                <td class="text-left"><span t-field="doc.program_id"/></td>
+                                <td class="text-left"><span t-field="doc.start_date"/>-<span t-field="doc.end_date"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <br/><br/><br/>
+                    <div>
+                        Accordingly this application is submitted, thank you for your cooperation.
+                    </div>
+                    <br/><br/><br/><br/><br/>
+                    <div class="text-right">
+                        <div>
+                            <strong>Assistant Director III</strong>
+                        </div>
+                        <div>
+                            Student Affairs, Alumni and Cooperation,
+                        </div>
+                        <div>
+                            Dr. Muhammad Zaenuddin, S.Si., M.Sc.
+                        </div>
+                    </div><br/><br/><br/>
+                    <div class="text-left">
+                        <strong>cc: Direktur Politeknik Negeri Batam</strong>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+

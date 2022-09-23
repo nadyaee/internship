@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report 
+        id="report_submission_letter"
+        model="submission.submission"
+        string="Submission Letter"
+        report_type="qweb-pdf"
+        name="v11_internship.report_submission"
+        file="v11_internship.report_submission"
+        menu="False"
+    />
+    <report 
+        id="report_cover_letter"
+        model="submission.submission"
+        string="Cover Letter"
+        report_type="qweb-pdf"
+        name="v11_internship.report_letter"
+        file="v11_internship.report_letter"
+        menu="False"
+    />
+    <report
+        id="action_report_tasklist"
+        model="report.all.tasklist"
+        string="Task List"
+        report_type="qweb-pdf"
+        name="v11_internship.report_all_tasklist"
+        file="v11_internship.report_all_tasklist"
+    />
+</odoo>
