@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <!-- Create Top Menu of Internship Management  -->
+    <menuitem 
+        name="Student" 
+        id="student_top_menu" 
+        action="student_action"
+        web_icon="hr,static/description/icon.png"
+        sequence="1"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+    <menuitem 
+        name="Staff" 
+        id="staff_top_menu" 
+        action="staff_action"
+        web_icon="contacts,static/description/icon.png"
+        sequence="2"
+        groups="base.group_system,v11_internship.group_staff"
+    />
+    <menuitem 
+        name="Internship Programme" 
+        id="intern_top_menu" 
+        web_icon="project,static/description/icon.png"
+        sequence="3"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+
+    <!-- Create Child Menu of Internship Programme -->
+    <menuitem id="submission_top_menu"
+        name="Submission"
+        parent="intern_top_menu"
+        sequence="1"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+    <menuitem 
+        name="Submission" 
+        id="intern_submission_top_menu" 
+        action="submission_action"
+        parent="submission_top_menu"
+        sequence="1"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+    <menuitem 
+        name="Company" 
+        id="company_top_menu" 
+        action="company_action"
+        parent="submission_top_menu"
+        sequence="2"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+
+    <menuitem id="intern_directory_top_menu"
+        name="Intern Directory"
+        parent="intern_top_menu"
+        action="directory_action"
+        sequence="2"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+    <menuitem id="report_top_menu"
+        name="Report"
+        parent="intern_top_menu"
+        sequence="3"
+        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+    />
+</odoo>

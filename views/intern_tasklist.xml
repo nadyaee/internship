@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Tree View of Task List-->
+    <record id="tasklist_tree_view" model="ir.ui.view">
+        <field name="name">tasklist.tree.view</field>
+        <field name="model">intern.tasklist</field>
+        <field name="arch" type="xml">
+            <tree string="Student Information">
+                <field name="id"/>
+                <field name="date"/>
+                <field name="intern_id" string="Name"/>
+                <field name="project_id"/>
+                <field name="task"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="tasklist_search" model="ir.ui.view">
+            <field name="name">tasklist.search</field>
+            <field name="model">intern.tasklist</field>
+            <field name="arch" type="xml">
+                <search string="Task List">
+                    <field name="date"/>
+                    <field name="project_id"/>
+                    <field name="task"/>
+                    <field name="description"/>
+                    <separator/>
+                    <filter name="week" string="This Week"
+                            domain="[
+                                '&amp;',
+                                ('date', '>=', (context_today() + relativedelta(weeks=-1,days=1,weekday=0)).strftime('%Y-%m-%d')),
+                                ('date', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d')),
+                            ]"/>
+                    <filter name="month" string="This Month"
+                            domain="[
+                                '&amp;',
+                                ('date', '>=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                ('date', '&lt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d')),
+                            ]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Project" name="groupby_project" domain="[]" context="{'group_by':'project_id'}"/>
+                        <filter string="Task" name="groupby_task" domain="[]" context="{'group_by':'task'}"/>
+                        <filter string="Month" name="groupby_date" domain="[]" context="{'group_by':'date'}" help="Tasklist by Month"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <!-- Form View Of Tasklist -->
+    <record id="tasklist_form_view" model="ir.ui.view">
+        <field name="name">tasklist.form.view</field>
+        <field name="model">intern.tasklist</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <div class="oe_title">
+                <br/>
+                    <h1>
+                        <field name="task" placeholder="Title"/>
+                    </h1>
+                </div>
+                <br/><br/>
+                <group>
+                    <group>
+                       <field name="project_id"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="intern_id" string="Name"/>
+                    </group>
+                </group>
+                <br/><br/>
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_create_project_form" model="ir.ui.view">
+    <field name="name">create.project.wizard.form</field>
+    <field name="model">tasklist.project</field>
+    <field name="arch" type="xml">
+        <form string="Create New Project">
+            <div class="oe_title">
+                 <h1>
+                    <br/><field name="name" placeholder="Project"/><br/>
+                </h1>
+            </div>
+            <group>
+                <group>
+                    <field name="date"/>
+                </group>
+            </group>
+            <br/><br/><br/>
+            <notebook>
+                <page string="Description">
+                    <field name="description"/>
+                </page>
+            </notebook>
+        </form>
+    </field>
+    </record>
+
+    <!--   Define custom action of Wizard Project-->
+    <record id="project_action" model="ir.actions.act_window">
+        <field name="name">Project</field>
+        <field name="res_model">tasklist.project</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+
+    <!--   Define custom action of Intern Task List -->
+    <record id="tasklist_action" model="ir.actions.act_window">
+        <field name="name">Task List</field>
+        <field name="res_model">intern.tasklist</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+</odoo>

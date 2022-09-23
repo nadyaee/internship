@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="open_intern_detail" model="ir.actions.act_window">
+        <field name="name">Intern Directory</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">intern.directory</field>
+        <field name="domain">[('submission_id', '=', active_id)]</field>
+        <field name="view_type">form</field>    
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree View of Submission-->
+    <record id="submission_tree_view" model="ir.ui.view">
+        <field name="name">submission.tree.view</field>
+        <field name="model">submission.submission</field>
+        <field name="arch" type="xml">
+            <tree string="Submission Information">
+                <field name="sequence1"/>
+                <field name="student_id"/>
+                <field name="company_id"/>
+                <field name="staff_id"/>
+                <field name="submisison_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View of Submission-->
+    <record id="submission_search_view" model="ir.ui.view">
+        <field name="name">submission.search.view</field>
+        <field name="model">submission.submission</field>
+        <field name="arch" type="xml">
+            <search string="Internship search">
+                <!-- searching-->
+                <field name="company_id"/>
+                <field name="staff_id"/>
+                <!-- Filter-->
+                    <filter name="week" string="This Week"
+                            domain="[
+                                '&amp;',
+                                ('submisison_date', '>=', (context_today() + relativedelta(weeks=-1,days=1,weekday=0)).strftime('%Y-%m-%d')),
+                                ('submisison_date', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d')),
+                            ]"/>
+                    <filter name="month" string="This Month"
+                            domain="[
+                                '&amp;',
+                                ('submisison_date', '>=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                ('submisison_date', '&lt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d')),
+                            ]"/>
+                <!-- Group-->
+                <group expand="0" string="Group By">
+                    <filter name="company_id" string="Company" domain="[]" context="{'group_by':'company_id'}"/>
+                    <filter name="staff_id" string="Coordinator" domain="[]" context="{'group_by':'staff_id'}"/>
+                    <filter name="state" string="State" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search> 
+        </field>
+    </record>
+    <!-- Form View of Submission  -->
+    <record id="submission_form_view" model="ir.ui.view">
+        <field name="name">submission.form.view</field>
+        <field name="model">submission.submission</field>
+        <field name="arch" type="xml">
+            <form>
+            <header>
+                    <button name="action_print_submission" string="Print Submission" type="object" class="oe_highlight" 
+                    attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'submit'),('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+                    <button name="action_print_cover" string="Print Cover Letter" type="object" class="oe_highlight"
+                    attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'submit'),('state', '=', 'progres'), ('state', '=', 'cancel')]}"/>
+                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" groups="base.group_system,v11_internship.group_student"
+                    attrs="{'invisible': ['|','|','|', ('state', '=', 'progres'), ('state', '=', 'submit'), ('state', '=', 'done'), ('state', '=', 'cancel') ]}"/>
+                    <button name="action_validate" string="Validate" type="object" class="oe_highlight" groups="base.group_system,v11_internship.group_staff"
+                    attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'progres'),('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+                    <button name="action_confirm" string="Confirm by Company" type="object" class="oe_highlight" groups="base.group_system, v11_internship.group_student"
+                    attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'submit'),('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+                    <button name="action_cancel" string="Cancel" type="object" class="oe_highlight" 
+                    attrs="{'invisible': ['|','|', ('state', '=', 'draft'),('state', '=', 'done')]}"/>
+                   <field name="state" widget="statusbar" statusbar_visible="draft,submit,progres,done"/>
+            </header>
+            <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="%(v11_internship.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user"
+                attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'submit'),('state', '=', 'progres'), ('state', '=', 'cancel')]}">                
+                </button>
+            </div>
+
+            <div class="oe_title">
+                <h1>
+                    <field name="sequence1" readonly="1"/>
+                </h1>
+                <br></br>
+            </div>
+            <group>
+                <group>
+                    <field name="student_id"/>
+                    <field name="identity"/>
+                    <field name="departement_id"/>
+                    <field name="program_id"/>
+                </group>
+                <group>
+                    <field name="submisison_date"/>
+                </group>
+            </group>
+            <br></br>
+            <group>
+                <group string="Company">
+                    <field string="Company" name="company_id"/>
+                    <label for="street" string="Address"/>
+                    <div class="o_address_format">
+                        <field name="company_street"  class="o_address_street"/>
+                        <field name="company_street2"  class="o_address_street"/>
+                        <field name="company_city_id"  class="o_address_city"/>
+                        <field name="company_state_id" class="o_address_state"/>
+                        <field name="company_zip"  class="o_address_zip"/>
+                        <field name="company_country_id"  class="o_address_country"/>
+                    </div>
+                    <field name="company_phone"/>
+                    <field name="company_mobile"/>
+                </group>
+                <group string="Internship">
+                    <field name="staff_id" domain="[('program_id','=',program_id)]"/>
+                    <field name="path"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="duration"/>
+                </group>
+            </group>
+            </sheet>
+            <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh':'recipients'}"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+     <!--   Define custom action of Submission-->
+    <record id="submission_action" model="ir.actions.act_window">
+        <field name="name">Submission</field>
+        <field name="res_model">submission.submission</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+</odoo>

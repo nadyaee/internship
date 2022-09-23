@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_layout">
+        <div class="header">
+            <div class="pull-left company_address">
+                <img src='/v11_internship/static/description/icon.png' style="max-height: 45px;"/>
+                <div>
+                    <strong>Univeristy</strong>
+                </div>
+                <span>Jl Kejaksaan, Blok C4 No 112, Batam, Kepulauan Riau</span>
+            </div>
+            <div class="pull-right">
+                <div class="mt0 text-right">
+                    Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <ul class="list-inline mb4 text-nowrap">
+                    <li ><i class="fa fa-phone"/> 0717-388-755 </li>
+                    <li><i class="fa fa-at"/> university@gmail.com </li>
+                    <li><i class="fa fa-globe"/> www.university.com </li>
+                </ul>
+                <div class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    of
+                    <span class="topage"/>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </template>
+</odoo>

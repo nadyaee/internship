@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="open_intern_detail" model="ir.actions.act_window">
+        <field name="name">Intern Directory</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">intern.directory</field>
+        <field name="domain">[('student_id', '=', active_id)]</field>
+        <field name="view_type">form</field>    
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_id" ref="v11_internship.intern_directory_tree_view"/>
+        <field name="binding_model_id" ref="model_student_student"/> -->
+    </record>
+
+    <!-- Tree View of Student-->
+    <record id="student_tree_view" model="ir.ui.view">
+        <field name="name">student.tree.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student Information">
+                <field name="name"/>
+                <field name="identity_no"/>
+                <field name="departement_id"/>
+                <field name="program_id"/>
+                <field name="transcript"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="cv_name" string="Curriculum Vitae"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_search_view" model="ir.ui.view">
+        <field name="name">student.search.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <search string="student search">
+                <!-- searching-->
+                <field name="name"/>
+                <field name="identity_no"/>
+                <field name="departement_id"/>
+                <field name="program_id"/>
+                <field name="phone"/>
+                <field name="cv"/>
+                <field name="email"/>
+                <!-- Group-->
+                <group expand="0" string="Group By">
+                    <filter name="departement_id" string="Departement" domain="[]" context="{'group_by':'departement_id'}"/>
+                    <filter name="program_id" string="Study Program"  domain="[]" context="{'group_by': 'program_id'}"/>
+                </group>
+            </search> 
+        </field>
+    </record>
+
+    <!-- Form View Of Student  -->
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="%(v11_internship.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user">                    
+                </button>
+                <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                    <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                </button>
+            </div>
+
+
+            <field name="image" widget="image" class="oe_avatar"/>
+            <div class="oe_title">
+            <h1>
+                <br/>
+                <field name="name" string="Name" placeholder="Name" />
+            </h1>
+            </div>
+            <br/>
+            <notebook>
+                <page name="student_personal_info" string="Personal Information">
+                <group>
+                    <group>
+                        <field name="user_id" groups="base.group_system"/>
+                        <field name="phone"  placeholder="Phone Number" />
+                        <field name="email"  placeholder="Email" />
+                        <field name="cv"  placeholder="Curriculum Vitae" filename="cv_name"/>
+                        <field name="cv_name" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="city_birth_id"/>
+                        <field name="date_birth"/>
+                        <label for="street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="street" placeholder="Street..." class="o_address_street"/>
+                            <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                            <field name="city_id" placeholder="City" class="o_address_city"/>
+                            <field name="state_id" placeholder="State" class="o_address_state" domain="[('country_id','=',country_id)]"/>
+                            <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country"/>
+                        </div>
+                    </group>
+                </group>
+                </page>
+
+                <page name="student_academic_detail" string="Student Academic Detail">
+                <group>
+                    <group> 
+                        <field name="identity_no" placeholder="Identity Number" />
+                        <field name="transcript" placeholder="Academic Transcript"/>
+                    </group>
+                    <group>
+                        <field name="program_id" placeholder="Study Program" domain="[('departement_id','=',departement_id)]"  />
+                        <field name="departement_id"  placeholder="Departement" />
+                    </group>
+                </group>
+                </page>
+
+                <page name="student_document" string="Student Document">
+                <group>
+                    <group> 
+                        <field name="identity_card"  placeholder="Identity Card" filename="identity_card_name"/>
+                        <field name="identity_card_name" invisible="1"/>
+                        <field name="family_card"  placeholder="Family Card" filename="family_card_name"/>
+                        <field name="family_card_name" invisible="1"/>
+                        <field name="education_certificate"  placeholder="Family Card" filename="education_certificate_name"/>
+                        <field name="education_certificate_name" invisible="1"/>
+                        <field name="health_certificate"  placeholder="Family Card" filename="health_certificate_name"/>
+                        <field name="health_certificate_name" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="yellow_card"  placeholder="Yellow Card" filename="yellow_card_name"/>
+                        <field name="yellow_card_name" invisible="1"/>
+                        <field name="skck"  placeholder="SKCK" filename="skck_name"/>
+                        <field name="skck_name" invisible="1"/>
+                    </group>
+                </group>
+                </page>
+            </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action of Student -->
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">student.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+</odoo>

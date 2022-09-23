@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <!-- Tree View of Staff-->
+    <record id="staff_tree_view" model="ir.ui.view">
+        <field name="name">staff.tree.view</field>
+        <field name="model">staff.staff</field>
+        <field name="arch" type="xml">
+            <tree string="Staff Information">
+                <field name="name"/>
+                <field name="identity"/>
+                <field name="departement_id"/>
+                <field name="program_id"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View of Staff-->
+    <record id="staff_search_view" model="ir.ui.view">
+        <field name="name">staff.search.view</field>
+        <field name="model">staff.staff</field>
+        <field name="arch" type="xml">
+            <search string="Staff search">
+                <!-- searching--> 
+                <field name="name"/>
+                <field name="identity"/>
+                <field name="departement_id"/>
+                <field name="program_id"/>
+                <field name="email"/>
+                <!-- Filter-->
+                <!-- Group-->
+                <group expand="0" string="Group By">
+                    <filter name="program_id" string="Program Study" domain="[]" context="{'group_by':'program_id'}"/>
+                    <filter name="departement_id" string="Departement" domain="[]" context="{'group_by':'departement_id'}"/>
+                </group>
+            </search> 
+        </field>
+    </record>
+    <!-- Form View of Staff -->
+    <record id="staff_form_view" model="ir.ui.view">
+        <field name="name">staff.form.view</field>
+        <field name="model">staff.staff</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+            <div class="oe_title">
+            <h1>
+                <br/>
+                <field name="name" string="Name" placeholder="Name" />
+            </h1>
+            </div>
+            <br/>
+            <br/>
+            <notebook>
+                <page string="Personal Information">
+                <group>
+                    <group>
+                        <label for="street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="street" placeholder="Street..." class="o_address_street"/>
+                            <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                            <field name="city_id" placeholder="City" class="o_address_city"/>
+                            <field name="state_id" placeholder="State" class="o_address_state" domain="[('country_id','=',country_id)]"/>
+                            <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="user_id" groups="base.group_system"/>
+                        <field name="identity" placeholder="Identity Number"/>
+                        <field name="phone"  placeholder="Phone Number"/>
+                        <field name="mobile" placeholder="Mobile Number"/>
+                        <field name="email"  placeholder="Email"/>
+                    </group>
+                </group>
+                </page>
+                <page string="Responsible">
+                    <group>
+                        <group>
+                            <field name="program_id" domain="[('departement_id','=',departement_id)]"/>
+                            <field name="departement_id"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+            <br></br>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action of Staff -->
+    <record id="staff_action" model="ir.actions.act_window">
+        <field name="name">Staff</field>
+        <field name="res_model">staff.staff</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+</odoo>

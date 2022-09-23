@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="open_task_list_detail" model="ir.actions.act_window">
+        <field name="name">Student Tasklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">intern.tasklist</field>
+        <field name="domain">[('intern_id', '=', active_id)]</field>
+        <field name="view_type">form</field>    
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Tree View of Intern Directory-->
+    <record id="intern_directory_tree_view" model="ir.ui.view">
+        <field name="name">intern.directory.tree.view</field>
+        <field name="model">intern.directory</field>
+        <field name="arch" type="xml">
+            <tree string="Intern Directory Information">
+                <field name="id"/>
+                <field name="student_id"/>
+                <field name="intern_identity"/>
+                <field name="company_id"/>
+                <field name="supervisor"/>
+                <field name="departement"/>
+                <field name="position"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View of Intern Directory-->
+    <record id="intern_directory_search_view" model="ir.ui.view">
+        <field name="name">intern.directory.search.view</field>
+        <field name="model">intern.directory</field>
+        <field name="arch" type="xml">
+            <search string="company search">
+                <!-- searching-->
+                <field name="student_id"/>
+                <field name="company_id"/>
+                <field name="duration"/>
+                <field name="supervisor"/>
+                <field name="departement"/>
+                <field name="position"/>
+                <!-- Group-->
+                <group expand="0" string="Group By">
+                    <filter name="company_id" string="Company" domain="[]" context="{'group_by':'company_id'}"/>
+                </group>
+            </search> 
+        </field>
+    </record>
+
+
+    <!-- Form View Of Intern Directory -->
+    <record id="intern_directory_form_view" model="ir.ui.view">
+        <field name="name">intern.directory.form.view</field>
+        <field name="model">intern.directory</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="%(v11_internship.open_task_list_detail)d" type="action" string="Task List"  class="oe_stat_button" icon=" fa-book"  context="{'default_student_id': id}">                    
+                </button>
+            </div>
+
+            <div class="oe_title">
+            <h1>
+                <br/>
+                <field name="student_id" string="Name" placeholder="Name" />
+            </h1>
+            </div>
+            <group string="Student Detail">
+                <group>
+                    <field name="intern_identity"/>
+                    <field name="departement_id"/>
+                    <field name="program_id"/>
+                </group>
+                <group>
+                </group>
+            </group>
+            <group string="Internship Detail">
+                <group>
+                    <field name="company_id"/>
+                    <field name="supervisor"/>
+                    <field name="departement"/>
+                    <field name="position"/>
+                </group>
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="duration"/>
+                </group>
+            </group>
+            <notebook>
+                <page string="Job Scope">
+                    <field name="job_scope_ids" mode="tree">
+                        <tree string="Job Scope">
+                            <field name="name"/>
+                            <field name="description"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+    <record id="directory_action" model="ir.actions.act_window">
+        <field name="name">Intern Directory</field>
+        <field name="res_model">intern.directory</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+</odoo>                                                                                                                                                                                                                                                                                    
