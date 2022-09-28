@@ -17,7 +17,7 @@ class ReportAllTasklist(models.TransientModel):
             'intern_id' : self.intern_id.id,
 
         }
-        report_action = self.env.ref('v11_internship.action_report_tasklist').report_action(self, data=data)
+        report_action = self.env.ref('v11_nadya_custom.action_report_tasklist').report_action(self, data=data)
         print('report', report_action)
         return report_action
     
