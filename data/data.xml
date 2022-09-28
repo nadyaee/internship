@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-    <!--Cover Latter Statement Sequences-->
-        <record id="sequence_submission_seq" model="ir.sequence">
-            <field name="name">Sequence Submission </field>
-            <field name="code">submission.submission1</field>
-            <field name="active">TRUE</field>
-            <field name="prefix">SUB/%(year)s/%(month)s/</field>
-            <field name="padding">5</field>
-            <field name="number_next">1</field>
-            <field name="number_increment">1</field>
-        </record>
-        <record id="sequence_cover_seq" model="ir.sequence">
-            <field name="name">Sequence Letter</field>
-            <field name="code">submission.submission2</field>
-            <field name="active">TRUE</field>
-            <field name="prefix">CV/%(year)s/%(month)s/</field>
-            <field name="padding">5</field>
-            <field name="number_next">1</field>
-            <field name="number_increment">1</field>
-        </record>
+    <data noupdate="1">
+        <data>
+        <!--Cover Latter Statement Sequences-->
+            <record id="sequence_submission_seq" model="ir.sequence">
+                <field name="name">Sequence Submission </field>
+                <field name="code">submission.submission1</field>
+                <field name="active">TRUE</field>
+                <field name="prefix">SUB/%(year)s/%(month)s/</field>
+                <field name="padding">5</field>
+                <field name="number_next">1</field>
+                <field name="number_increment">1</field>
+            </record>
+            <record id="sequence_cover_seq" model="ir.sequence">
+                <field name="name">Sequence Letter</field>
+                <field name="code">submission.submission2</field>
+                <field name="active">TRUE</field>
+                <field name="prefix">CV/%(year)s/%(month)s/</field>
+                <field name="padding">5</field>
+                <field name="number_next">1</field>
+                <field name="number_increment">1</field>
+            </record>
+        </data>
     </data>
 </odoo>
