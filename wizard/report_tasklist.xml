@@ -40,6 +40,6 @@
         action="action_tasklist_wizard" 
         parent="report_top_menu" 
         sequence="1"
-        groups="base.group_system,v11_internship.group_student"
+        groups="base.group_system,v11_nadya_custom.group_student"
     />
 </odoo>
