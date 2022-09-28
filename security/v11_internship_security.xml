@@ -8,51 +8,51 @@
             <field name="name">Personal Student</field>
             <field ref="model_student_student" name="model_id"/>
             <field name="domain_force">[('user_id','=',user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_student'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_student'))]"/>
         </record>
          <record id="student_submission_record_rule" model="ir.rule">
             <field name="name">Submission Student</field>
             <field ref="model_submission_submission" name="model_id"/>
             <field name="domain_force">['|',('student_id.user_id','=',user.id),('create_uid', '=', user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_student'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_student'))]"/>
         </record>
         
         <record id="student_intern_directory_record_rule" model="ir.rule">
             <field name="name">Intern Directory Student</field>
             <field ref="model_intern_directory" name="model_id"/>
             <field name="domain_force">[('create_uid','=',user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_student'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_student'))]"/>
         </record>
         <record id="student_intern_tasklist_rule" model="ir.rule">
             <field name="name">Intern Task List Student</field>
             <field ref="model_intern_tasklist" name="model_id"/>
             <field name="domain_force">[('create_uid','=',user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_student'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_student'))]"/>
        </record>
         <!-- Group Staff -->
         <record id="staff_personal_rule" model="ir.rule">
             <field name="name">Personal Staff</field>
             <field ref="model_staff_staff" name="model_id"/>
             <field name="domain_force">[('user_id','=',user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_staff'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_staff'))]"/>
         </record>
         <record id="staff_student_record_rule" model="ir.rule">
             <field name="name">Staff : show only own students</field>
             <field ref="model_student_student" name="model_id"/>
             <field name="domain_force">[('program_id', 'in', [user.x_staff_ids.program_id.id, False])]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_staff'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_staff'))]"/>
         </record>
         <record id="staff_submission_record_rule" model="ir.rule">
             <field name="name">Staff : show only submission own Students</field>
             <field ref="model_submission_submission" name="model_id"/>
             <field name="domain_force">[('staff_id.user_id','=',user.id)]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_staff'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_staff'))]"/>
         </record>
         <record id="staff_intern_directory_record_rule" model="ir.rule">
             <field name="name">Staff : show only intern directory own Student</field>
             <field ref="model_intern_directory" name="model_id"/>
             <field name="domain_force">[('program_id', 'in', [user.x_staff_ids.program_id.id, False])]</field>
-            <field name="groups" eval="[(4, ref('v11_internship.group_staff'))]"/>
+            <field name="groups" eval="[(4, ref('v11_nadya_custom.group_staff'))]"/>
         </record>
     </data>
 </odoo>
