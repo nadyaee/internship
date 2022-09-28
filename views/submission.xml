@@ -79,7 +79,7 @@
             </header>
             <sheet>
             <div class="oe_button_box" name="button_box">
-                <button name="%(v11_internship.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user"
+                <button name="%(v11_nadya_custom.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user"
                 attrs="{'invisible': ['|','|','|',  ('state', '=', 'draft'),('state', '=', 'submit'),('state', '=', 'progres'), ('state', '=', 'cancel')]}">                
                 </button>
             </div>
