@@ -20,7 +20,7 @@
         name="Student" 
         id="student_top_menu" 
         action="student_action"
-        web_icon="hr,static/description/icon.png"
+        web_icon="v11_nadya_custom,static/description/student.png"
         sequence="1"
         groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
@@ -28,14 +28,14 @@
         name="Staff" 
         id="staff_top_menu" 
         action="staff_action"
-        web_icon="contacts,static/description/icon.png"
+        web_icon="v11_nadya_custom,static/description/staff.png"
         sequence="2"
         groups="base.group_system,v11_nadya_custom.group_staff"
     />
     <menuitem 
         name="Internship Programme" 
         id="intern_top_menu" 
-        web_icon="project,static/description/icon.png"
+        web_icon="v11_nadya_custom,static/description/project.png"
         sequence="3"
         groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
