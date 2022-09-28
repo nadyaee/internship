@@ -47,6 +47,9 @@
                                 ('submisison_date', '>=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
                                 ('submisison_date', '&lt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d')),
                             ]"/>
+                    <filter name="submited" string="Submited Submission"
+                            domain="[('state', '=', 'submit')]"/>
+                                    
                 <!-- Group-->
                 <group expand="0" string="Group By">
                     <filter name="company_id" string="Company" domain="[]" context="{'group_by':'company_id'}"/>
