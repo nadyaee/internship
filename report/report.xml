@@ -5,8 +5,8 @@
         model="submission.submission"
         string="Submission Letter"
         report_type="qweb-pdf"
-        name="v11_internship.report_submission"
-        file="v11_internship.report_submission"
+        name="v11_nadya_custom.report_submission"
+        file="v11_nadya_custom.report_submission"
         menu="False"
     />
     <report 
@@ -14,8 +14,8 @@
         model="submission.submission"
         string="Cover Letter"
         report_type="qweb-pdf"
-        name="v11_internship.report_letter"
-        file="v11_internship.report_letter"
+        name="v11_nadya_custom.report_letter"
+        file="v11_nadya_custom.report_letter"
         menu="False"
     />
     <report
@@ -23,7 +23,7 @@
         model="report.all.tasklist"
         string="Task List"
         report_type="qweb-pdf"
-        name="v11_internship.report_all_tasklist"
-        file="v11_internship.report_all_tasklist"
+        name="v11_nadya_custom.report_all_tasklist"
+        file="v11_nadya_custom.report_all_tasklist"
     />
 </odoo>
