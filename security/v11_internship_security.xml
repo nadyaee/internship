@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Category -->
-    <record id="module_internship_management" model="ir.module.category">
-        <field name="name">Internship Management</field>
-        <field name="description"> Help you to handle Internship Management </field>
-    </record>
-    <!-- Group -->
-    <record id="group_staff" model="res.groups">
-        <field name="name">Staff</field>
-        <field name="category_id" ref="module_internship_management"/>
-        <field name="implied_ids" eval="[(4, ref('group_student'))]"/>
-    </record>
-    <record id="group_student" model="res.groups">
-        <field name="name">Student</field>
-        <field name="category_id" ref="module_internship_management"/>    
-    </record>
 
     <!-- Permission Record Rule of User-->
     <data noupdate="1">
