@@ -12,7 +12,7 @@ class InternTasklist(models.Model):
             res['intern_id'] = self._context.get('active_id')
         return res
 
-    date = fields.Date('Date', store=True)
+    date = fields.Date('Date', default=fields.Datetime.now, store=True, readonly=True)
     project_id = fields.Many2one('tasklist.project', 'Project', required=True)
     task = fields.Char('Task', required=True)
     description =  fields.Char('Description')
@@ -24,6 +24,6 @@ class TasklistProject(models.Model):
     _name =  'tasklist.project'
 
     name = fields.Char ('Name', required=True)
-    description = fields.Html('Description')
-    date =  fields.Date('Date')
+    description = fields.Html('Description', readonly=True)
+    date =  fields.Date('Date', default=fields.Datetime.now)
 
