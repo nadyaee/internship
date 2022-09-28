@@ -57,9 +57,9 @@ class Submission(models.Model):
 
 
     def action_print_submission(self):
-        return self.env.ref('v11_internship.report_submission_letter').report_action(self)
+        return self.env.ref('v11_nadya_custom.report_submission_letter').report_action(self)
     def action_print_cover(self):
-        return self.env.ref('v11_internship.report_cover_letter').report_action(self)
+        return self.env.ref('v11_nadya_custom.report_cover_letter').report_action(self)
     def action_submit(self):
         for rec in self:rec.state= 'submit'
     def action_validate(self):
