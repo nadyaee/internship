@@ -60,7 +60,7 @@
             <form>
             <sheet>
             <div class="oe_button_box" name="button_box">
-                <button name="%(v11_internship.open_task_list_detail)d" type="action" string="Task List"  class="oe_stat_button" icon=" fa-book"  context="{'default_student_id': id}">                    
+                <button name="%(v11_nadya_custom.open_task_list_detail)d" type="action" string="Task List"  class="oe_stat_button" icon=" fa-book"  context="{'default_student_id': id}">                    
                 </button>
             </div>
 
