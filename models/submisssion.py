@@ -55,7 +55,6 @@ class Submission(models.Model):
         res = super(Submission, self).create(vals)
         return res
 
-
     def action_print_submission(self):
         return self.env.ref('v11_nadya_custom.report_submission_letter').report_action(self)
     def action_print_cover(self):
