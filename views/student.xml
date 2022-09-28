@@ -59,7 +59,7 @@
             <form>
             <sheet>
             <div class="oe_button_box" name="button_box">
-                <button name="%(v11_internship.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user">                    
+                <button name="%(v11_nadya_custom.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user">                    
                 </button>
                 <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
                     <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
