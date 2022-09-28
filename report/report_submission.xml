@@ -3,7 +3,7 @@
     <template id="report_submission">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-            <t t-call="v11_internship.custom_layout"/>
+            <t t-call="v11_nadya_custom.custom_layout"/>
             <div class="header">
             </div>
                 <div class="article" style="border-top: 1px solid black;">
