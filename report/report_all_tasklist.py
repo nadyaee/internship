@@ -3,7 +3,7 @@ from odoo import api, fields,  models, _
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 
 class RecapReportAllTasklist(models.AbstractModel):
-    _name = "report.v11_internship.report_all_tasklist"
+    _name = "report.v11_nadya_custom.report_all_tasklist"
 
     @api.model
     def get_report_values(self, docids, data=None):
