@@ -22,7 +22,7 @@
         action="student_action"
         web_icon="hr,static/description/icon.png"
         sequence="1"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
     <menuitem 
         name="Staff" 
@@ -30,14 +30,14 @@
         action="staff_action"
         web_icon="contacts,static/description/icon.png"
         sequence="2"
-        groups="base.group_system,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_staff"
     />
     <menuitem 
         name="Internship Programme" 
         id="intern_top_menu" 
         web_icon="project,static/description/icon.png"
         sequence="3"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
 
     <!-- Create Child Menu of Internship Programme -->
@@ -45,7 +45,7 @@
         name="Submission"
         parent="intern_top_menu"
         sequence="1"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
     <menuitem 
         name="Submission" 
@@ -53,7 +53,7 @@
         action="submission_action"
         parent="submission_top_menu"
         sequence="1"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
     <menuitem 
         name="Company" 
@@ -61,7 +61,7 @@
         action="company_action"
         parent="submission_top_menu"
         sequence="2"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
 
     <menuitem id="intern_directory_top_menu"
@@ -69,12 +69,12 @@
         parent="intern_top_menu"
         action="directory_action"
         sequence="2"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
     <menuitem id="report_top_menu"
         name="Report"
         parent="intern_top_menu"
         sequence="3"
-        groups="base.group_system,v11_internship.group_student,v11_internship.group_staff"
+        groups="base.group_system,v11_nadya_custom.group_student,v11_nadya_custom.group_staff"
     />
 </odoo>
