@@ -18,7 +18,7 @@ class Staff(models.Model):
     mobile = fields.Char('Mobile Number')
     email = fields.Char('Email')
     user_id = fields.Many2one('res.users')
-
+    
 
     @api.constrains('identity')
     def check_identity(self):
@@ -26,3 +26,4 @@ class Staff(models.Model):
             staff = self.env['staff.staff'].search([('identity', '=', rec.identity), ('id', '!=', rec.id)])
             if staff:
                 raise ValidationError("Identity Number %s Already Exists" % rec.identity)
+            
