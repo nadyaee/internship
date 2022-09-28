@@ -3,7 +3,7 @@
     <template id="custom_layout">
         <div class="header">
             <div class="pull-left company_address">
-                <img src='/v11_internship/static/description/icon.png' style="max-height: 45px;"/>
+                <img src='/v11_nadya_custom/static/description/icon.png' style="max-height: 45px;"/>
                 <div>
                     <strong>Univeristy</strong>
                 </div>
