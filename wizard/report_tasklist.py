@@ -4,7 +4,7 @@ import time
 class ReportAllTasklist(models.TransientModel):
     _name = "report.all.tasklist"
 
-    intern_id = fields.Many2one('intern.directory', 'Name')
+    intern_id = fields.Many2one('intern.directory', 'Intern Directory')
     date_from = fields.Date('Date from', store=True, required=True)
     date_to = fields.Date('Date to', store=True, required=True)
 
