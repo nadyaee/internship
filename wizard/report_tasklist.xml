@@ -12,7 +12,13 @@
                         <field name="intern_id"/>
                     </group>
                     <group>
+                    </group>
+                </group>
+                <group>
+                    <group>
                         <field name="date_from"/>
+                    </group>
+                    <group>
                         <field name="date_to"/>
                     </group>
                 </group>
