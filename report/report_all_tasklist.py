@@ -7,6 +7,8 @@ class RecapReportAllTasklist(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
+        
+        
         domain = []
         if data.get('date_from'):
             domain.append(('date', '>=', data.get('date_from')))
