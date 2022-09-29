@@ -4,11 +4,19 @@
         <field name="name">Intern Directory</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">intern.directory</field>
-        <field name="domain">[('student_id', '=', active_id)]</field>
+        <field name="domain">[('submission_id', '=', active_id)]</field>
         <field name="view_type">form</field>    
         <field name="view_mode">tree,form</field>
         <!-- <field name="view_id" ref="v11_internship.intern_directory_tree_view"/>
         <field name="binding_model_id" ref="model_student_student"/> -->
+    </record>
+        <record id="open_submission_detail" model="ir.actions.act_window">
+        <field name="name">Submission</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">submission.submission</field>
+        <field name="domain">[('student_id', '=', active_id)]</field>
+        <field name="view_type">form</field>    
+        <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Tree View of Student-->
@@ -59,6 +67,8 @@
             <form>
             <sheet>
             <div class="oe_button_box" name="button_box">
+                <button name="%(v11_nadya_custom.open_submission_detail)d" type="action" string="Submission"  class="oe_stat_button" icon=" fa-book">                    
+                </button>
                 <button name="%(v11_nadya_custom.open_intern_detail)d" type="action" string="Intern Directory"  class="oe_stat_button" icon=" fa-user">                    
                 </button>
                 <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
