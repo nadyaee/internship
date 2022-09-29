@@ -93,5 +93,6 @@ class Submission(models.Model):
                 'end_date' : self.end_date,       
                 
             })
+            print('seq', record)
         return record
 
