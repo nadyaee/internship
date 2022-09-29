@@ -115,11 +115,11 @@
                 <group>
                     <group> 
                         <field name="identity_no" placeholder="Identity Number" />
-                        <field name="transcript" placeholder="Academic Transcript"/>
+                        <field name="departement_id"  placeholder="Departement" />
                     </group>
                     <group>
+                        <field name="transcript" placeholder="Academic Transcript"/>
                         <field name="program_id" placeholder="Study Program" domain="[('departement_id','=',departement_id)]"  />
-                        <field name="departement_id"  placeholder="Departement" />
                     </group>
                 </group>
                 </page>
