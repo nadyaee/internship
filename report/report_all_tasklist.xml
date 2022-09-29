@@ -22,7 +22,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span><strong>From </strong></span>
+                            <span><strong>Date From </strong></span>
                         </td>
                         <td>
                             <span>&#160;:&#160;</span>
@@ -30,10 +30,11 @@
                         <td>
                             <span t-esc="datas['date_from']"/>
                         </td>
-                        </tr>
-                    <tr>
                         <td>
-                            <span><strong>To</strong></span>
+                            <span>&#160;&#160;</span>
+                        </td>
+                        <td>
+                            <span><strong>Date To</strong></span>
                         </td>
                            <td>
                             <span>&#160;:&#160;</span>
