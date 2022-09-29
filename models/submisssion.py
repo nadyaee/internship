@@ -11,9 +11,8 @@ class Submission(models.Model):
     def default_get(self, fields):
         res = super(Submission, self).default_get(fields)
         res['student_id'] = self._context.get('active_id')
-        print('test', res)
         return res
-
+    
     sequence1 = fields.Char(string='Sumbission Reference', default=lambda self: _('New'),
         copy=False, readonly=True, required=True,
         states={'done': [('readonly', True)]}, track_visibility='always')
@@ -60,6 +59,7 @@ class Submission(models.Model):
             vals['sequence2'] = self.env['ir.sequence'].next_by_code('submission.submission2') or _('New')
         res = super(Submission, self).create(vals)
         return res
+
 
     def action_print_submission(self):
         return self.env.ref('v11_nadya_custom.report_submission_letter').report_action(self)
