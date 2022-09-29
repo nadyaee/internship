@@ -7,6 +7,12 @@ class Submission(models.Model):
     _rec_name = 'student_id'
     _order = 'id desc'
 
+    @api.model
+    def default_get(self, fields):
+        res = super(Submission, self).default_get(fields)
+        res['student_id'] = self._context.get('active_id')
+        print('test', res)
+        return res
 
     sequence1 = fields.Char(string='Sumbission Reference', default=lambda self: _('New'),
         copy=False, readonly=True, required=True,
