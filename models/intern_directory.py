@@ -5,7 +5,9 @@ class InternDirectory(models.Model):
     _name = 'intern.directory'
     _rec_name = 'student_id'
     _order = 'id desc'
-
+    
+    sequence = fields.Char(string='Sumbission Reference', default=lambda self: _('New'),
+        copy=False, readonly=True, required=True)
     student_id = fields.Many2one( 'student.student', 'Student', required=True, readonly=True)
     intern_identity = fields.Char('Student Identity', related="student_id.identity_no", readonly=True)
     departement_id = fields.Many2one(readonly=True, related='student_id.departement_id')
@@ -26,7 +28,15 @@ class InternDirectory(models.Model):
     def _compute_duration(self):
         for emp in self:
             duration = relativedelta(fields.Datetime.from_string(emp.end_date), fields.Datetime.from_string(emp.start_date))
-            emp.duration = str(duration.months) 
+            emp.duration = str(duration.months)
+
+    @api.model
+    def create(self, vals):
+        if 'sequence' not in vals or vals['sequence'] == _('New'):
+            vals['sequence'] = self.env['ir.sequence'].next_by_code('intern.directory') or _('New')
+        res = super(InternDirectory, self).create(vals)
+        return res
+    
 
 class JobScope(models.Model):
     _name = 'job.scope'
