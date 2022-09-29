@@ -13,7 +13,7 @@
         <record id="group_staff" model="res.groups">
         <field name="name">Staff</field>
         <field name="category_id" ref="module_internship_management"/>
-        <field name="implied_ids" eval="[(4, ref('group_student'))]"/>
+        <!--<field name="implied_ids" eval="[(4, ref('group_student'))]"/>-->
     </record>
      <!-- Create Top Menu of Internship Management  -->
     <menuitem 
