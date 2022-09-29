@@ -16,7 +16,7 @@
         <field name="model">intern.directory</field>
         <field name="arch" type="xml">
             <tree string="Intern Directory Information">
-                <field name="id"/>
+                <field name="sequence"/>
                 <field name="student_id"/>
                 <field name="intern_identity"/>
                 <field name="company_id"/>
@@ -66,12 +66,12 @@
 
             <div class="oe_title">
             <h1>
-                <br/>
-                <field name="student_id" string="Name" placeholder="Name" />
+                <field name="sequence"/>
             </h1>
             </div>
             <group string="Student Detail">
                 <group>
+                    <field name="student_id" string="Name" placeholder="Name" />
                     <field name="intern_identity"/>
                     <field name="departement_id"/>
                     <field name="program_id"/>
