@@ -11,7 +11,7 @@
             </div>
             <div class="pull-right">
                 <div class="mt0 text-right">
-                    Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                    Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M %p')"/>
                 </div>
             </div>
         </div>
