@@ -1,5 +1,6 @@
 from odoo import fields, models, api,  _ 
 from dateutil.relativedelta import relativedelta
+from datetime import datetime
 
 class Submission(models.Model):
     _name = 'submission.submission'
@@ -77,9 +78,10 @@ class Submission(models.Model):
     @api.multi
     @api.depends('start_date', 'end_date')
     def _compute_duration(self):
-        for emp in self:
-            duration = relativedelta(fields.Datetime.from_string(emp.end_date), fields.Datetime.from_string(emp.start_date))
-            emp.duration = (duration.months) 
+        for res in self:
+            duration = relativedelta(fields.Datetime.from_string(res.end_date), fields.Datetime.from_string(res.start_date)) 
+            res.duration = (duration.months) 
+            print('result', duration)
 
     @api.multi
     def write(self,values):
