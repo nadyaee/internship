@@ -3,7 +3,7 @@ from odoo import fields, models, api, _
 class InternTasklist(models.Model):
     _name = 'intern.tasklist'
     _rec_name="intern_id"
-    _order = 'date desc'
+    _order = 'id, date desc'
 
     @api.model
     def default_get(self, fields):
