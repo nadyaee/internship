@@ -6,7 +6,7 @@ class InternDirectory(models.Model):
     _rec_name = 'student_id'
     _order = 'id desc'
     
-    sequence = fields.Char(string='Reference', default=lambda self: _('New'),
+    name = fields.Char(string='Reference', default=lambda self: _('New'),
         copy=False, readonly=True, required=True)
     student_id = fields.Many2one( 'student.student', 'Student', required=True, readonly=True)
     intern_identity = fields.Char('Student Identity', related="student_id.identity_no", readonly=True)
@@ -32,11 +32,18 @@ class InternDirectory(models.Model):
 
     @api.model
     def create(self, vals):
-        if 'sequence' not in vals or vals['sequence'] == _('New'):
-            vals['sequence'] = self.env['ir.sequence'].next_by_code('intern.directory') or _('New')
+        if 'name' not in vals or vals['name'] == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('intern.directory') or _('New')
         res = super(InternDirectory, self).create(vals)
         return res
     
+    def name_get(self):
+        result = []
+        for rec in self:
+            name ='[' + rec.name + '] ' + '[' + rec.company_id.name + '] '
+            result.append((rec.id, name))
+        return result
+        
 
 class JobScope(models.Model):
     _name = 'job.scope'
