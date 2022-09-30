@@ -43,6 +43,11 @@
             </div>
             <group>
                 <group>
+                    <field name="phone"  placeholder="Phone Number" />
+                    <field name="mobile" placeholder="Mobile Number"/>
+                    <field name="email"  placeholder="Email" />
+                </group>
+                <group>
                     <label for="street" string="Address"/>
                     <div class="o_address_format">
                         <field name="street" placeholder="Street..." class="o_address_street"/>
@@ -52,11 +57,6 @@
                         <field name="zip" placeholder="ZIP" class="o_address_zip"/>
                         <field name="country_id" placeholder="Country" class="o_address_country"/>
                     </div>
-                </group>
-                <group>
-                    <field name="phone"  placeholder="Phone Number" />
-                    <field name="mobile" placeholder="Mobile Number"/>
-                    <field name="email"  placeholder="Email" />
                 </group>
             </group>
             </sheet>
