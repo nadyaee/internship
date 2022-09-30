@@ -5,6 +5,7 @@ class ReportAllTasklist(models.TransientModel):
     _name = "report.all.tasklist"
 
     intern_id = fields.Many2one('intern.directory', 'Intern Directory')
+    student_id = fields.Many2one('student.student', readonly=True, related="intern_id.student_id")
     date_from = fields.Date('Date from', store=True, required=True)
     date_to = fields.Date('Date to', store=True, required=True)
 
@@ -15,6 +16,7 @@ class ReportAllTasklist(models.TransientModel):
             'date_from' : self.date_from,
             'date_to' : self.date_to,
             'intern_id' : self.intern_id.id,
+            'student_id' : self.student_id.name,
 
         }
         report_action = self.env.ref('v11_nadya_custom.action_report_tasklist').report_action(self, data=data)
