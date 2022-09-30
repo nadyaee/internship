@@ -6,44 +6,26 @@
             <div class="header"></div>
             <div class="article" style="border-top: 1px solid black;">
                 <div class="page">
-                <h2 class="text-center"><strong>Task List Report</strong></h2>
+                <h2 class="text-center"><strong>TASK LIST REPORT</strong></h2>
                 <br/><br/>
-                <table>
-                    <tr>
-                        <td>
-                            <span><strong>Student</strong></span>
-                        </td>
-                        <td>
-                            <span>&#160;:&#160;</span>
-                        </td>
-                        <td>
-                            <span t-esc="datas['tasklists']"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span><strong>Date From </strong></span>
-                        </td>
-                        <td>
-                            <span>&#160;:&#160;</span>
-                        </td>
-                        <td>
-                            <span t-esc="datetime.datetime.strptime(datas['date_from'], '%Y-%m-%d').strftime('%d/%m/%Y')"/>
-                        </td>
-                        <td>
-                            <span>&#160;&#160;</span>
-                        </td>
-                        <td>
-                            <span><strong>Date To</strong></span>
-                        </td>
-                           <td>
-                            <span>&#160;:&#160;</span>
-                        </td>
-                        <td>
-                            <span t-esc="datetime.datetime.strptime(datas['date_to'], '%Y-%m-%d').strftime('%d/%m/%Y')"/>
-                        </td>
-                    </tr>
-                </table>
+                <h4 >
+                        <span>Intern Directory #</span>
+                        <span t-esc="datas['tasklists']"/>
+                </h4>
+                <div class="row mt32 mb32" id="informations">
+                    <div class="col-xs-3">
+                        <strong>Student:</strong>
+                        <p t-esc="datas['student_id']"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <strong>Date From:</strong>
+                        <p t-esc="datetime.datetime.strptime(datas['date_from'], '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <strong>Date To:</strong>
+                        <p t-esc="datetime.datetime.strptime(datas['date_to'], '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                    </div>
+                </div>
                     <br/>
                     <table class="table table-condensed">
                             <thead>
