@@ -47,7 +47,7 @@ class StudentAcademic(models.Model):
             student = self.env['student.student'].search([('identity_no', '=', rec.identity_no), ('id', '!=', rec.id)])
             if student:
                 raise ValidationError("Identity Number %s Already Exists" % rec.identity_no)
-
+        
 class Departement(models.Model):
     _name = 'student.departement'
     name = fields.Char('Departement')
