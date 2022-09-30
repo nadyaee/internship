@@ -6,8 +6,7 @@ class InternDirectory(models.Model):
     _rec_name = 'student_id'
     _order = 'id desc'
     
-    name = fields.Char(string='Reference', default=lambda self: _('New'),
-        copy=False, readonly=True, required=True)
+    name = fields.Char(string='Reference', default=lambda self: _('New'), copy=False, readonly=True, required=True)
     student_id = fields.Many2one( 'student.student', 'Student', required=True, readonly=True)
     intern_identity = fields.Char('Student Identity', related="student_id.identity_no", readonly=True)
     departement_id = fields.Many2one(readonly=True, related='student_id.departement_id')
