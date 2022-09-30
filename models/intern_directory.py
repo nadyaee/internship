@@ -44,7 +44,6 @@ class InternDirectory(models.Model):
             result.append((rec.id, name))
         return result
         
-
 class JobScope(models.Model):
     _name = 'job.scope'
     
