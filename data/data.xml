@@ -21,7 +21,7 @@
                 <field name="number_increment">1</field>
             </record>
             <record id="sequence_intern_diectory" model="ir.sequence">
-                <field name="name">Intern Directory Sequnece</field>
+                <field name="name">Intern Directory Sequence</field>
                 <field name="code">intern.directory</field>
                 <field name="active">TRUE</field>
                 <field name="prefix">ID/%(year)s/%(month)s/</field>
