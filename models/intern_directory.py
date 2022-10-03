@@ -42,6 +42,7 @@ class InternDirectory(models.Model):
             name ='[' + rec.name + '] ' + '[' + rec.company_id.name + '] '
             result.append((rec.id, name))
         return result
+    
         
 class JobScope(models.Model):
     _name = 'job.scope'
