@@ -6,7 +6,6 @@
         <field name="model">intern.tasklist</field>
         <field name="arch" type="xml">
             <tree string="Student Information">
-                <field name="id"/>
                 <field name="date"/>
                 <field name="intern_id" string="Intern Directory"/>
                 <field name="project_id"/>
