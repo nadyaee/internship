@@ -2,7 +2,7 @@ from odoo import fields, models, api, _
 
 class InternTasklist(models.Model):
     _name = 'intern.tasklist'
-    _rec_name="intern_id"
+    _rec_name="task"
     _order = 'id, date desc'
 
     @api.model
