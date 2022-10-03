@@ -9,7 +9,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-
     <!-- Tree View of Intern Directory-->
     <record id="intern_directory_tree_view" model="ir.ui.view">
         <field name="name">intern.directory.tree.view</field>
